@@ -1,0 +1,101 @@
+:root{
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #0ea5a4;
+  --sidebar-bg: #f8fafc;
+  --card-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  --max-width: 1100px;
+  --radius: 10px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+  display:flex;
+  justify-content:center;
+}
+
+.page{
+  width:100%;
+  max-width:var(--max-width);
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:28px;
+  align-items:start;
+}
+
+.sidebar{
+  background:var(--sidebar-bg);
+  padding:22px;
+  border-radius:var(--radius);
+  box-shadow:var(--card-shadow);
+  position:relative;
+}
+
+.photo img{
+  width:100%;
+  border-radius:8px;
+  object-fit:cover;
+  margin-bottom:12px;
+}
+
+.name{margin:0;font-size:1.6rem}
+.title{margin-top:6px;color:var(--muted);font-weight:600}
+
+.contact{margin:16px 0;display:flex;flex-direction:column;gap:6px}
+.contact a{color:var(--text);text-decoration:none;font-size:0.95rem}
+
+.sidebar-actions{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.btn{
+  display:inline-block;padding:8px 10px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;border:none;cursor:pointer;text-align:center;
+}
+.btn:hover{opacity:0.95}
+
+.skills h3, .education h3{margin:12px 0 8px}
+.skills ul, .projects ul, .experience ul{padding-left:1.15rem;margin:0.35rem 0}
+
+.content{
+  background:transparent;padding:10px 6px;
+}
+
+.content section{background:rgba(255,255,255,0.8);padding:16px;border-radius:10px;margin-bottom:18px;box-shadow:var(--card-shadow)}
+.content h2{margin-top:0}
+
+.job h3{margin:0;font-size:1.05rem}
+.company{color:var(--muted);font-weight:600}
+.meta{color:var(--muted);font-size:0.9rem;margin-bottom:8px}
+
+/* Responsive */
+@media (max-width:900px){
+  .page{grid-template-columns: 1fr; padding:0; gap:12px}
+  .sidebar{order:0}
+  body{padding:12px}
+}
+
+/* Dark theme (toggle adds .dark to <html>) */
+:root.dark{
+  --bg:#0b1220;
+  --text:#e6eef6;
+  --muted:#9aa8bb;
+  --accent:#06b6d4;
+  --sidebar-bg:#071122;
+}
+
+/* Print styles */
+@media print{
+  body, .page{background:white;color:black;box-shadow:none;padding:0}
+  .page{grid-template-columns:1fr;gap:0;max-width:800px}
+  .sidebar, .sidebar-actions, .btn{display:none}
+  .content section{box-shadow:none;border-radius:0;padding:0 0 12px}
+  .content h2{font-size:18px}
+  a[href]:after{content:" (" attr(href) ")";font-size:10px}
+}
