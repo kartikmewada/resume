@@ -99,3 +99,10 @@ body{
   .content h2{font-size:18px}
   a[href]:after{content:" (" attr(href) ")";font-size:10px}
 }
+/* button-style anchors */
+.btn { display: inline-block; padding: 0.4rem 0.85rem; margin: 0 0.35rem; color: #fff; background: #0073e6; border-radius: 4px; text-decoration: none; font-weight: 600; }
+.btn:hover,.btn:focus { background: #005bb5; outline: none; }
+
+/* nav container */ .resume-nav { margin: 1rem 0; }
+
+
